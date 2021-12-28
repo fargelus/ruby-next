@@ -62,7 +62,7 @@ module RubyNext
     end
 
     class << self
-      attr_accessor :rewriters, :text_rewriters
+      attr_accessor :rewriters
       attr_reader :watch_dirs
 
       attr_accessor :strategy
@@ -170,7 +170,7 @@ module RubyNext
 
       def text_rewrite(source, rewriters:, using:, context:)
         rewriters.inject(source) do |src, rewriter|
-          rewriter.new(context).rewrite(src)
+          rewriter.new(context).safe_rewrite(src)
         end.then do |new_source|
           next source unless context.dirty?
 
@@ -182,7 +182,6 @@ module RubyNext
     end
 
     self.rewriters = []
-    self.text_rewriters = []
     self.watch_dirs = %w[app lib spec test].map { |path| File.join(Dir.pwd, path) }
     self.mode = ENV.fetch("RUBY_NEXT_TRANSPILE_MODE", "rewrite").to_sym
 
@@ -248,7 +247,7 @@ module RubyNext
     rewriters << Rewriters::EndlessRange
 
     require "ruby-next/language/rewriters/endless_method"
-    RubyNext::Language.rewriters << RubyNext::Language::Rewriters::EndlessMethod
+    rewriters << RubyNext::Language::Rewriters::EndlessMethod
 
     if ENV["RUBY_NEXT_EDGE"] == "1"
       require "ruby-next/language/edge"

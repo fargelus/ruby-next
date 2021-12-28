@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "ruby-next-parser", ">= 3.1.1.0"
   s.add_development_dependency "unparser", "~> 0.6.0"
+  s.add_development_dependency "paco", "~> 0.2"
 end
