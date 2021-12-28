@@ -12,7 +12,7 @@ module RubyNext
           source.gsub(/\.:([\w_]+)/) do |match|
             context.track! self
 
-            ".method(:#{match[1]})"
+            ".method(:#{$1})"
           end
         end
       end
