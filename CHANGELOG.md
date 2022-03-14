@@ -2,6 +2,18 @@
 
 ## master
 
+- Create empty `.rbnext` folder during `nextify` if nothing to transpile. ([@palkan][])
+
+This would prevent from auto-transpiling a library every time when no files should be transpiled.
+
+- Auto-transpile using the current Ruby version. ([@palkan][])
+
+- Support Pry. ([@baygeldin][])
+
+## 0.14.1 (2022-01-21)
+
+- Fix nested find patterns transpiling. ([@palkan][])
+
 ## 0.14.0 🎄
 
 - Add `Integer.try_convert`. ([@palkan][])
