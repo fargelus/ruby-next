@@ -48,7 +48,7 @@
 
 - `Enumerable#tally` with the resulting hash ([#17744](https://bugs.ruby-lang.org/issues/17744))
 
-- `Refinement#import_methods` ([#17429](https://bugs.ruby-lang.org/issues/17429))
+- `Refinement#import_methods` ([#17429](https://bugs.ruby-lang.org/issues/17429)). **NOTE:** The polyfill+transpiling only works for Ruby 2.7+; for older versions consider using `#include` instead.
 
 - `MatchData#match` ([#18172](https://bugs.ruby-lang.org/issues/18172))
 
@@ -57,6 +57,10 @@
 - `Integer.try_convert` ([#15211](https://bugs.ruby-lang.org/issues/15211))
 
 ## Syntax
+
+### 2.5
+
+- do/end blocks work with ensure/rescue/else ([#12906](https://bugs.ruby-lang.org/issues/12906))
 
 ### 2.6
 

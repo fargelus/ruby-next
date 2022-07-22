@@ -2,6 +2,14 @@
 
 ## master
 
+## 0.15.1 (2022-04-05)
+
+- Fix transpiling `rescue` within nested blocks. ([@palkan][])
+
+## 0.15.0 (2022-03-21)
+
+- Support IRB ([@palkan][])
+
 - Create empty `.rbnext` folder during `nextify` if nothing to transpile. ([@palkan][])
 
 This would prevent from auto-transpiling a library every time when no files should be transpiled.
@@ -9,6 +17,8 @@ This would prevent from auto-transpiling a library every time when no files shou
 - Auto-transpile using the current Ruby version. ([@palkan][])
 
 - Support Pry. ([@baygeldin][])
+
+- Add `rescue/ensure/else` within block rewriter for Ruby < 2.5. ([@fargelus][])
 
 ## 0.14.1 (2022-01-21)
 

@@ -24,9 +24,6 @@ module RubyNext
       "core_ext" => Commands::CoreExt
     }.freeze
 
-    def initialize
-    end
-
     def run(args = ARGV)
       maybe_print_version(args)
 
@@ -80,18 +77,16 @@ module RubyNext
     end
 
     def optparser
-      @optparser ||= begin
-        OptionParser.new do |opts|
-          opts.banner = "Usage: ruby-next COMMAND [options]"
+      @optparser ||= OptionParser.new do |opts|
+        opts.banner = "Usage: ruby-next COMMAND [options]"
 
-          opts.on("-v", "--version", "Print version") do
-            $stdout.puts RubyNext::VERSION
-            exit 0
-          end
+        opts.on("-v", "--version", "Print version") do
+          $stdout.puts RubyNext::VERSION
+          exit 0
+        end
 
-          opts.on("-h", "--help", "Print help") do
-            @print_help = true
-          end
+        opts.on("-h", "--help", "Print help") do
+          @print_help = true
         end
       end
     end
